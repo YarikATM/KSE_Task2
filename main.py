@@ -2,7 +2,7 @@ from tkinter import *
 from sympy import *
 
 root = Tk()
-root.geometry('800x700')
+root.geometry('650x700')
 root.resizable(width=True, height=True)
 
 t_title = Label(text='Введите \nзначение времени:')
@@ -46,8 +46,8 @@ Vm_l = Label(text='Vm = o3 * r3')
 atm_l = Label(text='atm = e3 * r3')
 anm_l = Label(text='anm = Vm^2 / r3')
 am_l = Label(text='am = sqrt(anm^2 + atm^2)')
-result = Label(text='')
-result_ = Label(text='')
+result = Label(text='',font=('Arial', 14))
+result_ = Label(text='',font=('Arial', 12))
 
 
 def calculate(event):
@@ -91,8 +91,8 @@ def calculate(event):
         am_l["text"] = f'am = sqrt(anm^2 + atm^2) = {am} м/c^2.'
         result["text"] = f'Ответ:'
         result_["text"] = f'В момент времени t = {t} с груз 1 прошел «путь» равный {S1} мм,\n ' \
-                          f'а точка М малого цилиндра блока 3 механизма имеет «нормальное ускорение» {anm} м/с2,\n ' \
-                          f'«тангенциальное ускорение» {atm} м/с2 и «полное ускорение» {am} м/с2.'
+                          f'а точка М малого цилиндра блока 3 механизма\n имеет «нормальное ускорение» {anm} м/с2,\n ' \
+                          f'«тангенциальное ускорение» {atm} м/с2\n и «полное ускорение» {am} м/с2.'
 
 
     except:
