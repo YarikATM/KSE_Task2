@@ -9,23 +9,23 @@ t_title = Label(text='Введите \nзначение времени:')
 row_t_value = IntVar()
 t_entry = Entry(textvariable=row_t_value)
 
-eq_title = Label(text='Введите уравнение\n (пример: 21 + 100 * t**2):')
+eq_title = Label(text='Уравнение:\n 21 + 100t^2')
 row_eq_value = StringVar()
 eq_entry = Entry(textvariable=row_eq_value)
 
-R2_title = Label(text='Введите \nзначение R2:')
+R2_title = Label(text='Значение R2:\n60мм')
 row_R2_value = IntVar()
 R2_entry = Entry(textvariable=row_R2_value)
 
-r2_title = Label(text='Введите \nзначение r2:')
+r2_title = Label(text='Значение r2:\n82мм')
 row_r2_value = IntVar()
 r2_entry = Entry(textvariable=row_r2_value)
 
-R3_title = Label(text='Введите \nзначение R3:')
+R3_title = Label(text='Значение R3:\n170мм')
 row_R3_value = IntVar()
 R3_entry = Entry(textvariable=row_R3_value)
 
-r3_title = Label(text='Введите \nзначение r3:')
+r3_title = Label(text='Значение r3:\n100мм')
 row_r3_value = IntVar()
 r3_entry = Entry(textvariable=row_r3_value)
 
@@ -52,13 +52,13 @@ result_ = Label(text='')
 
 def calculate(event):
     try:
-        eq_value = row_eq_value.get()
+        eq_value = '21 + 120 * t**2'
         t_value = row_t_value.get()
         t = t_value
-        R2_value = row_R2_value.get() / 1000
-        r2_value = row_r2_value.get() / 1000
-        R3_value = row_R3_value.get() / 1000
-        r3_value = row_r3_value.get() / 1000
+        R2_value = 60 / 1000
+        r2_value = 82 / 1000
+        R3_value = 170 / 1000
+        r3_value = 100 / 1000
         S1 = eval(eq_value)  # MM
         S1_l["text"] = f'S1 = y1 = {eq_value} = {S1} мм.'
         V1_diff = diff(eq_value)  # MM/c
@@ -90,7 +90,7 @@ def calculate(event):
         am = round(sqrt(anm ** 2 + atm ** 2), 3)
         am_l["text"] = f'am = sqrt(anm^2 + atm^2) = {am} м/c^2.'
         result["text"] = f'Ответ:'
-        result_["text"] = f'в момент времени t = {t} с груз 1 прошел «путь» равный {S1} мм,\n ' \
+        result_["text"] = f'В момент времени t = {t} с груз 1 прошел «путь» равный {S1} мм,\n ' \
                           f'а точка М малого цилиндра блока 3 механизма имеет «нормальное ускорение» {anm} м/с2,\n ' \
                           f'«тангенциальное ускорение» {atm} м/с2 и «полное ускорение» {am} м/с2.'
 
@@ -104,18 +104,13 @@ def calculate(event):
 
 button = Button(text='Рассчитать')
 
-t_title.grid(column=1, row=1)
-t_entry.grid(column=1, row=2)
-eq_title.grid(column=2, row=1)
-eq_entry.grid(column=2, row=2)
+t_title.grid(column=2, row=1)
+t_entry.grid(column=2, row=2)
+eq_title.grid(column=1, row=1)
 R2_title.grid(column=3, row=1)
-R2_entry.grid(column=3, row=2)
 r2_title.grid(column=1, row=3)
-r2_entry.grid(column=1, row=4)
 R3_title.grid(column=2, row=3)
-R3_entry.grid(column=2, row=4)
 r3_title.grid(column=3, row=3)
-r3_entry.grid(column=3, row=4)
 button.grid(column=2, row=5)
 Name_res_label.grid(column=2, row=10)
 S1_l.grid(column=2, row=11)
